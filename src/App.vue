@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script type="text/ecmascript-6">
+<script>
 import header from 'components/header/header'
 const ERR_OK = 0
 export default {

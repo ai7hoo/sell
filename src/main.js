@@ -11,13 +11,6 @@ import 'common/stylus/index.styl'
 Vue.use(VueRouter)
 Vue.use(VueResource)
 
-/* eslint-disable no-new */
-// new Vue({
-//   el: '#app',
-//   template: '<App/>',
-//   components: { App }
-// })
-
 const routes = [
   {path: '/goods', component: goods, name: 'goods'},
   {path: '/seller', component: seller},
