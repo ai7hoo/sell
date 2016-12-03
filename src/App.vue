@@ -16,7 +16,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/ecmascript-6">
 import header from 'components/header/header'
 const ERR_OK = 0
 export default {
@@ -39,7 +39,7 @@ export default {
 }
 </script>
 
-<style lang="stylus">
+<style lang="stylus" rel="stylesheet/stylus">
   @import "./common/stylus/mixin.styl"
   
   .tab
