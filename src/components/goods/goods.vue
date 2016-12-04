@@ -1,6 +1,6 @@
 <template>
   <div class="goods">
-    <div class="menu-wrapper" id="menu-wrapper">
+    <div class="menu-wrapper" ref="menuWrapper">
       <ul>
         <li v-for="(item, index) in goods" class="menu-item" :class="{'current': currentIndex===index}" @click="selectMenu(index, $event)">
           <span class="text border-1px">
@@ -9,7 +9,7 @@
         </li>
       </ul>
     </div>
-    <div class="foods-wrapper" id="foods-wrapper">
+    <div class="foods-wrapper" ref="foodWrapper">
       <ul>
         <li v-for="item in goods" class="food-list food-list-hook">
           <h1 class="title">{{item.name}}</h1>
@@ -83,15 +83,15 @@ export default {
       if (!e._constructed) {
         return
       }
-      let foodList = document.getElementById('foods-wrapper').getElementsByClassName('food-list-hook')
+      let foodList = this.$refs.foodWrapper.getElementsByClassName('food-list-hook')
       let el = foodList[index]
       this.foodsScroll.scrollToElement(el, 300)
     },
     _initScroll () {
-      this.menuScroll = new BScroll(document.getElementById('menu-wrapper'), {
+      this.menuScroll = new BScroll(this.$refs.menuWrapper, {
         click: true
       })
-      this.foodsScroll = new BScroll(document.getElementById('foods-wrapper'), {
+      this.foodsScroll = new BScroll(this.$refs.foodWrapper, {
         probeType: 3
       })
 
@@ -100,7 +100,7 @@ export default {
       })
     },
     _calculateHeight () {
-      let foodList = document.getElementById('foods-wrapper').getElementsByClassName('food-list-hook')
+      let foodList = this.$refs.foodWrapper.getElementsByClassName('food-list-hook')
       let height = 0
       this.listHeight.push(height)
       for (let i = 0; i < foodList.length; i++) {
