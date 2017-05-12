@@ -27,8 +27,8 @@
         type: Array,
         default () {
           return [{
-            count: 3,
-            price: 9
+            count: 0,
+            price: 0
           }]
         }
       },
@@ -61,7 +61,6 @@
           return `￥${this.minPrice}元起送`
         } else if (this.totalPrice < this.minPrice) {
           let diff = (this.minPrice - this.totalPrice).toFixed(2)
-          console.log(diff)
           return `还差￥${diff}元`
         } else {
           return '去结算'
